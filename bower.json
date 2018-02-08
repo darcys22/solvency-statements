@@ -1,0 +1,17 @@
+{
+  "name": "Solvency Statement Generator",
+  "version": "0.0.1",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "authors": [
+    "Sean Darcy <Darcys22@gmail.com>"
+  ],
+  "description": "Simple App to Generate Solvency Statements",
+  "main": "index.html",
+  "keywords": [
+  ],
+  "license": "GPLv3"
+}
