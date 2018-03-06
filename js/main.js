@@ -14,7 +14,7 @@ function generate() {
       margin:       1,
       filename:     'Solvency Statement.pdf',
       image:        { type: 'jpeg', quality: 0.98 },
-      html2canvas:  { dpi: 192, letterRendering: true },
+      html2canvas:  { dpi: 600, letterRendering: true },
       jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
     });
 	});
