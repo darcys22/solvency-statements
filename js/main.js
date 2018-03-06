@@ -8,14 +8,13 @@ function generate() {
 	 
 	request.done(function(data) {
     var template = Handlebars.compile(data);
-    var context = {title: "My New Post", body: "This is my first post!"};
     var html    = template(window.company);
     html2pdf(html, {
       margin:       1,
       filename:     'Solvency Statement.pdf',
       image:        { type: 'jpeg', quality: 0.98 },
       html2canvas:  { dpi: 600, letterRendering: true },
-      jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+      jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
     });
 	});
 	 
@@ -42,17 +41,37 @@ $('#details_form').validator().on('submit', function (e) {
   } else {
     e.preventDefault();
     window.company = $('#details_form').serializeObject();
+    window.company.date = moment().format("D MMMM YYYY") + ", 11:00am";
     generate();
   }
-})
+});
+
+function add() {
+	//Create an input type dynamically.
+	var element = document.createElement("input");
+
+	//Create Labels
+	var label = document.createElement("Label");
+	label.innerHTML = "Director";     
+
+	//Assign different attributes to the element.
+	element.setAttribute("type", "text");
+	element.setAttribute("value", "");
+	element.setAttribute("name", "Director Name");
+	element.setAttribute("style", "width:200px");
+
+	label.setAttribute("style", "font-weight:normal");
+
+	var foo = document.getElementById("director");
+
+	//Append the element in page (in span).
+	foo.appendChild(label);
+	foo.appendChild(element);
+}
+
+
 
 function main() {
-  window.now = moment();
-
-	//var source   = document.getElementById("solvency-template").innerHTML;
-	//var template = Handlebars.compile(source);
-
-
 }
 main();
 
